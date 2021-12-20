@@ -17,7 +17,7 @@ public:
     int getCapacity();
     int* getPointer();
 
-    
+    bool isEmpty();
 };
 
 #endif

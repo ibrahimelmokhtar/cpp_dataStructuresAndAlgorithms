@@ -26,3 +26,12 @@ int* Array::getPointer()
 {
     return this->array_ptr;
 }
+
+bool Array::isEmpty()
+{
+    bool isEmpty = false;
+    if (this->getPointer() == NULL){
+        isEmpty = true;
+    }
+    return isEmpty;
+}
