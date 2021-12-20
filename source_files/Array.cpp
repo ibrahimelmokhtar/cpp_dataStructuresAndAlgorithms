@@ -2,13 +2,15 @@
 
 Array::Array(int capacity)
 {
-    Array::setCapacity(capacity);
+    this->setCapacity(capacity);
+    this->setSize(0);
     this->array_ptr = NULL;
 }
 
 Array::~Array()
 {
-    this->array_capacity = 0;
+    this->setCapacity(0);
+    this->setSize(0);
     delete[] this->array_ptr;
 }
 
@@ -27,11 +29,51 @@ int* Array::getPointer()
     return this->array_ptr;
 }
 
+void Array::setSize(int size)
+{
+    this->array_size = size;
+}
+
+int Array::getSize()
+{
+    return this->array_size;
+}
+
 bool Array::isEmpty()
 {
+    // a bool variable to save the result:
     bool isEmpty = false;
+
+    // if this array pointer refers to a NULL value, then it's empty array ...
+    // else: it will be not empty, a.k.a. contains elements:
     if (this->getPointer() == NULL){
         isEmpty = true;
     }
     return isEmpty;
+}
+
+void Array::pushItem(int item)
+{
+    // update the actual size by 1:
+    this->setSize(this->getSize() + 1);
+
+    // create a temp array with the updated size:
+    int* temp_array = new int [this->getSize()];
+
+    // if this array is not empty, copy the elements into the temp array:
+    if (!this->isEmpty()){
+        for (int i=0; i<this->getSize(); i++){
+            *(temp_array + i) = *(this->array_ptr + i);
+        }
+    }
+
+    // add the new item at the end of the temp array:
+    *(temp_array + array_size-1) = item;
+
+    // set this array equal to the temp array:
+    this->array_ptr = temp_array;
+
+    // delete the temp array:
+    temp_array = NULL;
+    delete temp_array;
 }

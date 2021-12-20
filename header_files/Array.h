@@ -9,15 +9,20 @@ class Array
 private:
     int* array_ptr;
     int array_capacity;
+    int array_size;
 public:
-    Array(int capacity);
+    Array(int);
     ~Array();
 
-    void setCapacity(int capacity);
+    void setCapacity(int);
     int getCapacity();
     int* getPointer();
+    void setSize(int);
+    int getSize();
 
     bool isEmpty();
+
+    void pushItem(int);
 };
 
 #endif
