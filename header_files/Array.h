@@ -23,6 +23,8 @@ public:
     bool isEmpty();
 
     void pushItem(int);
+
+    int getItemAt(int);
 };
 
 #endif

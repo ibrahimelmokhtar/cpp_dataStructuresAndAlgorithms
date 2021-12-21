@@ -77,3 +77,30 @@ void Array::pushItem(int item)
     temp_array = NULL;
     delete temp_array;
 }
+
+int Array::getItemAt(int index)
+{
+    // display message if array is empty, then return:
+    if (this->isEmpty())
+    {
+        cout << "Array is empty!" << endl;
+        return NULL;
+    }
+
+    // display message if negative index is given, then return:
+    if (index < 0)
+    {
+        cout << "Invalid index!" << endl;
+        return NULL;
+    }
+
+    // display message if index is greater than array size (a.k.a., out of range), then return:
+    if (index >= this->getSize())
+    {
+        cout << "Index out of range!" << endl;
+        return NULL;
+    }
+
+    // return element at specific index:
+    return *(this->getPointer()+index);
+}

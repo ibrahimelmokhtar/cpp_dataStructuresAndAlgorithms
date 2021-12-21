@@ -18,29 +18,29 @@ int main(){
         cout << "Empty array!" << endl;
     }
 
-// add item at the end of the array:
-    int number = 0;
-    cout << "Enter element to add into array: ";
-    cin >> number;
-    arr.pushItem(number);
+// get specific index:
+    int index = 0;
+    cout << "Find element at index: ";
+    cin >> index;
 
-    cout << "\tarray elements: [ ";
-    for (int i=0; i<arr.getSize(); i++){
-        cout << *(arr.getPointer()+i);
-        if (i != arr.getSize()-1){
-            cout << " , ";
-        }
+// display element at given index, if any found:
+    if (arr.getItemAt(index) != NULL)
+    {
+        cout << "element at index (" << index << ") is: " << arr.getItemAt(index) << endl;
     }
-    cout << " ]" << endl;
+    cout << endl;
 
-    cout << "Enter element to add into array: ";
-    cin >> number;
-    arr.pushItem(number);
+// add item at the end of the array:
+    cout << "You will enter THREE numbers now ..." << endl;
 
-    cout << "Enter element to add into array: ";
-    cin >> number;
-    arr.pushItem(number);
+    int number = 0;
+    for (int i=0; i<3; i++){
+        cout << "Enter element to add into array: ";
+        cin >> number;
+        arr.pushItem(number);
+    }
 
+// display array's elements:
     cout << "\tarray elements: [ ";
     for (int i=0; i<arr.getSize(); i++){
         cout << *(arr.getPointer()+i);
@@ -51,6 +51,16 @@ int main(){
     cout << " ]" << endl;
 
     cout << "Size of array: " << arr.getSize() << endl;
+
+// get specific index:
+    cout << "Find element at index: ";
+    cin >> index;
+
+// display element at given index, if any found:
+    if (arr.getItemAt(index) != NULL)
+    {
+        cout << "element at index (" << index << ") is: " << arr.getItemAt(index) << endl;
+    }
 
     return 0;
 }
