@@ -1,44 +1,53 @@
 #include "source_files/Array.cpp"
 
-int main(){
-// enter number of items array can hold, a.k.a. capacity:
-    int capacity = 0;
-    cout << "Enter initial capacity: ";
-    cin >> capacity;
-
+int main(){    
 // create an empty array object:
-    Array arr = Array(capacity);
+    Array arr = Array();
 
 // display its capacity:
     cout << "array capacity: " << arr.getCapacity() << endl;
 
-// display message if it's an empty array:
-    if (arr.isEmpty())
-    {
-        cout << "Empty array!" << endl;
-    }
-
-// get specific index:
-    int index = 0;
-    cout << "Find element at index: ";
-    cin >> index;
-
-// display element at given index, if any found:
-    if (arr.getItemAt(index) != NULL)
-    {
-        cout << "element at index (" << index << ") is: " << arr.getItemAt(index) << endl;
-    }
-    cout << endl;
-
 // add item at the end of the array:
-    cout << "You will enter THREE numbers now ..." << endl;
+    int numberOfElements = 0;
+    cout << "Number of NEW elements: ";
+    cin >> numberOfElements;
+    cout << "You will enter (" << numberOfElements << ") numbers now ..." << endl;
+
+// check capacity:
+    arr.checkCapacity();
 
     int number = 0;
-    for (int i=0; i<3; i++){
+    for (int i=0; i<numberOfElements; i++)
+    {
         cout << "Enter element to add into array: ";
         cin >> number;
         arr.pushItem(number);
     }
+
+// display array's elements:
+    cout << "\tarray elements: [ ";
+    for (int i=0; i<arr.getSize(); i++)
+    {
+        cout << *(arr.getPointer()+i);
+        if (i != arr.getSize()-1){
+            cout << " , ";
+        }
+    }
+    cout << " ]" << endl;
+
+// display capacity and size:
+    arr.checkCapacity();
+    cout << endl;
+    cout << "Capacity: " << arr.getCapacity() << endl;
+    cout << "Size\t: " << arr.getSize() << endl << endl;
+    
+    int index = 0;
+    cout << "Insert item in specific index: \n\tindex: ";
+    cin >> index;
+    cout << "\titem: ";
+    cin >> number;
+
+    arr.insertAt(index, number);
 
 // display array's elements:
     cout << "\tarray elements: [ ";
@@ -50,17 +59,10 @@ int main(){
     }
     cout << " ]" << endl;
 
-    cout << "Size of array: " << arr.getSize() << endl;
-
-// get specific index:
-    cout << "Find element at index: ";
-    cin >> index;
-
-// display element at given index, if any found:
-    if (arr.getItemAt(index) != NULL)
-    {
-        cout << "element at index (" << index << ") is: " << arr.getItemAt(index) << endl;
-    }
+// display capacity and size:
+    cout << endl;
+    cout << "Capacity: " << arr.getCapacity() << endl;
+    cout << "Size\t: " << arr.getSize() << endl;
 
     return 0;
 }

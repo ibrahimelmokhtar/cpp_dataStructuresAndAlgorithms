@@ -24,7 +24,12 @@ public:
 
     void pushItem(int);
 
+    bool checkIndexValidation(int);
+    void checkCapacity();
+
     int getItemAt(int);
+
+    void insertAt(int, int);
 };
 
 #endif
