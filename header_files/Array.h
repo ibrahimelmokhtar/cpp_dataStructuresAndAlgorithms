@@ -30,6 +30,8 @@ public:
     int getItemAt(int);
     void insertAt(int, int);
     void prependItem(int);
+
+    int popItem();
 };
 
 #endif

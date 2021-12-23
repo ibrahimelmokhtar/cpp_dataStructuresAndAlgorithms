@@ -211,3 +211,19 @@ void Array::prependItem(int item)
     temp_array = NULL;
     delete temp_array;
 }
+
+int Array::popItem()
+{
+    int item = *(this->getPointer() + this->getSize()-1);
+    this->setSize(this->getSize()-1);
+
+    int *temp_array = new int [this->getSize()];
+    for (int i=0; i<this->getSize(); i++){
+        *(temp_array+i) = *(this->getPointer()+i);
+    }
+    this->array_ptr = temp_array;
+    temp_array = NULL;
+    delete temp_array;
+    
+    return item;
+}

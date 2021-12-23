@@ -41,11 +41,9 @@ int main(){
     cout << "Capacity: " << arr.getCapacity() << endl;
     cout << "Size\t: " << arr.getSize() << endl << endl;
     
-    cout << "Insert item in specific the beginning of the array:" << endl;
-    cout << "\titem: ";
-    cin >> number;
+    cout << "pop item from the end of the array ..." << endl;
 
-    arr.prependItem(number);
+    cout << "\titem: " << arr.popItem() << endl;
 
 // display array's elements:
     cout << "\tarray elements: [ ";
