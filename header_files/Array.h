@@ -32,6 +32,7 @@ public:
     void prependItem(int);
 
     int popItem();
+    int deleteItemAt(int);
 };
 
 #endif

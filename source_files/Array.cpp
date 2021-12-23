@@ -214,16 +214,61 @@ void Array::prependItem(int item)
 
 int Array::popItem()
 {
+    // get the desird item from the end of the array:
     int item = *(this->getPointer() + this->getSize()-1);
+
+    // reduce the size by -1:
     this->setSize(this->getSize()-1);
 
+    // create temp array to move items in it:
     int *temp_array = new int [this->getSize()];
+
+    // move items, except the final item in the origin array:
     for (int i=0; i<this->getSize(); i++){
         *(temp_array+i) = *(this->getPointer()+i);
     }
+
+    // update the final array:
     this->array_ptr = temp_array;
+    
+    // delete the temp array:
     temp_array = NULL;
     delete temp_array;
-    
+
+    return item;
+}
+
+int Array::deleteItemAt(int index)
+{
+    // get the desird item from the given index:
+    int item = *(this->getPointer()+index);
+
+    // create temp array to move items in it:
+    int *temp_array = new int [this->getSize()-1];
+
+    // move items, except the item in the given index:
+    int j=0;
+    for (int i=0; i<this->getSize(); i++, j++)
+    {
+        // skip the item in the given index:
+        if (i == index)
+        {
+            j--;
+            continue;
+        }
+
+        *(temp_array+j) = *(this->getPointer()+i);
+    }
+
+    // reduce the size by -1:
+    this->setSize(this->getSize()-1);
+
+    // update the final array:
+    this->array_ptr = temp_array;
+
+    // delete the temp array:
+    temp_array = NULL;
+    delete temp_array;
+
     return item;
 }

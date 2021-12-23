@@ -41,9 +41,11 @@ int main(){
     cout << "Capacity: " << arr.getCapacity() << endl;
     cout << "Size\t: " << arr.getSize() << endl << endl;
     
-    cout << "pop item from the end of the array ..." << endl;
+    cout << "delete item from specific index: ";
+    int index = 0;
+    cin >> index;
 
-    cout << "\titem: " << arr.popItem() << endl;
+    cout << "\titem: " << arr.deleteItemAt(index) << endl;
 
 // display array's elements:
     cout << "\tarray elements: [ ";
