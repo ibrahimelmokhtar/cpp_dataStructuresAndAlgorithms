@@ -41,13 +41,11 @@ int main(){
     cout << "Capacity: " << arr.getCapacity() << endl;
     cout << "Size\t: " << arr.getSize() << endl << endl;
     
-    int index = 0;
-    cout << "Insert item in specific index: \n\tindex: ";
-    cin >> index;
+    cout << "Insert item in specific the beginning of the array:" << endl;
     cout << "\titem: ";
     cin >> number;
 
-    arr.insertAt(index, number);
+    arr.prependItem(number);
 
 // display array's elements:
     cout << "\tarray elements: [ ";

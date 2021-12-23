@@ -28,8 +28,8 @@ public:
     void checkCapacity();
 
     int getItemAt(int);
-
     void insertAt(int, int);
+    void prependItem(int);
 };
 
 #endif

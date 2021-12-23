@@ -178,3 +178,36 @@ void Array::insertAt(int index, int item)
         }
     }
 }
+
+void Array::prependItem(int item)
+{
+    // update capacity, if required:
+    this->checkCapacity();
+
+    // update size by +1:
+    this->setSize(this->getSize()+1);
+
+    int *temp_array = new int [this->getSize()];
+
+    int j=0;
+    for (int i=0; i<this->getSize(); i++, j++)
+    {
+        // place item in required index:
+        if (i == 0){
+            *(temp_array+i) = item;
+            j--;
+        }
+        else
+        {
+            // move elements in its new places:
+            *(temp_array+i) = *(this->getPointer()+j);
+        }
+    }
+    
+    // update array:
+    this->array_ptr = temp_array;
+
+    // delete temp array:
+    temp_array = NULL;
+    delete temp_array;
+}
