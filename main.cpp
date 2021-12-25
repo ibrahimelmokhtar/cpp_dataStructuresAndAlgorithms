@@ -40,12 +40,12 @@ int main(){
     cout << endl;
     cout << "Capacity: " << arr.getCapacity() << endl;
     cout << "Size\t: " << arr.getSize() << endl << endl;
-    
-    cout << "delete item from specific index: ";
-    int index = 0;
-    cin >> index;
 
-    cout << "\titem: " << arr.deleteItemAt(index) << endl;
+// delete specific element from array, even if found in multiple positions:
+    cout << "delete specific number from array: ";
+    cin >> number;
+
+    arr.removeItem(number);
 
 // display array's elements:
     cout << "\tarray elements: [ ";

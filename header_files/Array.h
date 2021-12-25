@@ -33,6 +33,7 @@ public:
 
     int popItem();
     int deleteItemAt(int);
+    void removeItem(int);
 };
 
 #endif

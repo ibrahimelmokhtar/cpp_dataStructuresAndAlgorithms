@@ -272,3 +272,34 @@ int Array::deleteItemAt(int index)
 
     return item;
 }
+
+void Array::removeItem(int number)
+{
+    // create temp array to move items in it:
+    int *temp_array = new int;
+    int j=0;
+    int new_size = 0;
+    
+    // move items, except the given item, even if found in multiple indeces:
+    for (int i=0; i<this->getSize(); i++, j++)
+    {
+        // delete the number and array size is reduced:
+        // skip the item found in this index:
+        if (*(this->getPointer()+i) == number)
+        {
+            j--;
+            continue;
+        }
+
+        *(temp_array+j) = *(this->getPointer()+i);
+        new_size++;
+    }
+
+    // update the final (array) and (array size):
+    this->array_ptr = temp_array;
+    this->setSize(new_size);
+
+    // delete the temp array:
+    temp_array = NULL;
+    delete temp_array;
+}
