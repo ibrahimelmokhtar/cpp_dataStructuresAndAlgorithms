@@ -25,7 +25,7 @@ public:
     void pushItem(int);
 
     bool checkIndexValidation(int);
-    void checkCapacity();
+    void resizeCapacity();
 
     int getItemAt(int);
     void insertAt(int, int);

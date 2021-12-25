@@ -14,7 +14,7 @@ int main(){
     cout << "You will enter (" << numberOfElements << ") numbers now ..." << endl;
 
 // check capacity:
-    arr.checkCapacity();
+    arr.resizeCapacity();
 
     int number = 0;
     for (int i=0; i<numberOfElements; i++)
@@ -36,16 +36,20 @@ int main(){
     cout << " ]" << endl;
 
 // display capacity and size:
-    arr.checkCapacity();
+    arr.resizeCapacity();
     cout << endl;
     cout << "Capacity: " << arr.getCapacity() << endl;
     cout << "Size\t: " << arr.getSize() << endl << endl;
 
 // delete specific element from array, even if found in multiple positions:
-    cout << "find specific number from array: ";
-    cin >> number;
-
-    int foundAt = arr.findItem(number);
+    int elements = 0;
+    cout << "number of elements to be deleted: ";
+    cin >>elements;
+    cout << "delete last (" << elements << ") items from the array:" << endl;
+    for (int i=0; i<elements; i++)
+    {
+        arr.popItem();
+    }
 
 // display array's elements:
     cout << "\tarray elements: [ ";

@@ -107,11 +107,18 @@ bool Array::checkIndexValidation(int index)
     return isValid;
 }
 
-void Array::checkCapacity()
+void Array::resizeCapacity()
 {
+    // used to increase capacity to double its size:
     if (this->getSize() >= this->getCapacity())
     {
-        this->setCapacity(2*this->getCapacity());
+        this->setCapacity(2 * this->getCapacity());
+    }
+
+    // used to decrease capacity to half its size:
+    else if (this->getSize() <= (0.25 * this->getCapacity()))
+    {
+        this->setCapacity(0.5 * this->getCapacity());
     }
 }
 
@@ -132,7 +139,7 @@ int Array::getItemAt(int index)
 void Array::insertAt(int index, int item)
 {
     // update capacity, if required:
-    this->checkCapacity();
+    this->resizeCapacity();
 
     // insert at the end of the array:
     if (index == this->getSize())
@@ -182,7 +189,7 @@ void Array::insertAt(int index, int item)
 void Array::prependItem(int item)
 {
     // update capacity, if required:
-    this->checkCapacity();
+    this->resizeCapacity();
 
     // update size by +1:
     this->setSize(this->getSize()+1);
@@ -234,6 +241,9 @@ int Array::popItem()
     // delete the temp array:
     temp_array = NULL;
     delete temp_array;
+
+    // update capacity, if required:
+    this->resizeCapacity();
 
     return item;
 }
@@ -309,8 +319,10 @@ int Array::findItem(int number)
     int index = -1;
     bool found = false;
 
+    // find the first appearance of the given item:
     for (int i=0; i<this->getSize(); i++)
     {
+        // found! .. then update index:
         if (*(this->getPointer()+i) == number)
         {
             index = i;
@@ -319,6 +331,7 @@ int Array::findItem(int number)
         }
     }
 
+    // display message for the user:
     if (found)
     {
         cout << "Item if found at index (" << index << ")" << endl;
