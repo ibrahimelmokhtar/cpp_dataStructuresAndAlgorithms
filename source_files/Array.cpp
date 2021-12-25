@@ -303,3 +303,30 @@ void Array::removeItem(int number)
     temp_array = NULL;
     delete temp_array;
 }
+
+int Array::findItem(int number)
+{
+    int index = -1;
+    bool found = false;
+
+    for (int i=0; i<this->getSize(); i++)
+    {
+        if (*(this->getPointer()+i) == number)
+        {
+            index = i;
+            found = true;
+            break;
+        }
+    }
+
+    if (found)
+    {
+        cout << "Item if found at index (" << index << ")" << endl;
+    }
+    else
+    {
+        cout << "Error 404: Item NOT found!" << endl;
+    }    
+
+    return index;
+}

@@ -42,10 +42,10 @@ int main(){
     cout << "Size\t: " << arr.getSize() << endl << endl;
 
 // delete specific element from array, even if found in multiple positions:
-    cout << "delete specific number from array: ";
+    cout << "find specific number from array: ";
     cin >> number;
 
-    arr.removeItem(number);
+    int foundAt = arr.findItem(number);
 
 // display array's elements:
     cout << "\tarray elements: [ ";

@@ -34,6 +34,8 @@ public:
     int popItem();
     int deleteItemAt(int);
     void removeItem(int);
+
+    int findItem(int);
 };
 
 #endif
